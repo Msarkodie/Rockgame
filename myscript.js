@@ -10,23 +10,24 @@ function getComputerChoice(num)
     else
         return "rock"
 }
-//Get the human input
-let input = prompt("Please enter your choice. 1.paper 2.scissors 3.rock");
+
+
 
 //Streamline the human selection and store
-const humanSelection = getHumanChoice(input);
+//const humanSelection = getHumanChoice();
 
 //Generate computer selection and store
-const computerSelection = getComputerChoice(3);
+//const computerSelection = getComputerChoice(3);
 
 //Scores
 let humanScore = 0;
 let computerScore = 0;
 
 //function to take human choice and generate reponse
-function getHumanChoice(word)
+function getHumanChoice()
 {
-    lowerWord = word.toLowerCase();
+    let input = prompt("Please enter your choice. 1.paper 2.scissors 3.rock");
+    lowerWord = input.toLowerCase();
     if (lowerWord === 'paper')
         return "paper";
     else if (lowerWord === 'scissors')
@@ -43,7 +44,7 @@ function playRound(humanChoice, computerChoice)
     {
         if (humanChoice === 'paper' && computerChoice === 'rock')
             {
-               console.log('You win ' +humanChoice + ' beats ' + computerChoice);
+               console.log('You win ' + humanChoice + ' beats ' + computerChoice);
                humanScore++;
     
             }
@@ -83,14 +84,84 @@ function playRound(humanChoice, computerChoice)
                         computerScore++;
                 
                 }
+
+        if(humanChoice === computerChoice)
+        {
+            console.log('Awwnn. There was a tie. No score then')
+        }
     
 
-        console.log('End of round. HumanScore = ' + humanScore + ' ComputerScore = ' + computerScore)
+        console.log('End of this round. HumanScore = ' + humanScore + ' ComputerScore = ' + computerScore)
+        
     }
     
 }
 
-console.log(getComputerChoice(3));
-console.log(getHumanChoice(humanSelection));
-playRound(humanSelection,computerSelection);
+function playGame()
+{
+    console.log('Round 1')
+    let humanSelection = getHumanChoice();
+    let computerSelection = getComputerChoice(3);
+    console.log('Computer Selection is ' + computerSelection);
+    console.log('Human Selection is ' + humanSelection);
+    playRound(humanSelection,computerSelection);
+
+    console.log('Round 2')
+    humanSelection = getHumanChoice();
+    computerSelection = getComputerChoice(3);
+    console.log('Computer Selection is ' + computerSelection);
+    console.log('Human Selection is ' + humanSelection);
+    playRound(humanSelection,computerSelection);
+
+    console.log('Round 3')
+    humanSelection = getHumanChoice();
+    computerSelection = getComputerChoice(3);
+    console.log('Computer Selection is ' + computerSelection);
+    console.log('Human Selection is ' + humanSelection);
+    playRound(humanSelection,computerSelection);
+
+    console.log('Round 4')
+    humanSelection = getHumanChoice();
+    computerSelection = getComputerChoice(3);
+    console.log('Computer Selection is ' + computerSelection);
+    console.log('Human Selection is ' + humanSelection);
+    playRound(humanSelection,computerSelection);
+
+    console.log('Round 5')
+    humanSelection = getHumanChoice();
+    computerSelection = getComputerChoice(3);
+    console.log('Computer Selection is ' + computerSelection);
+    console.log('Human Selection is ' + humanSelection);
+    playRound(humanSelection,computerSelection);
+
+    
+
+    
+
+
+
+
+    console.log('At the end of the 5 Rounds Human Score is '+ humanScore + ' Computer Score is '+ computerScore)
+    if(humanScore > computerScore)
+        {
+            console.log('Wow, Congratulations, you won.')
+
+        }
+
+    else if(humanScore < computerScore)
+        {
+            console.log('Ohhh sorry but you lost the game')
+        }
+
+    else
+        {
+            console.log('Its a tie. Play again next time')
+        }
+
+
+}
+
+playGame();
+
+
 
