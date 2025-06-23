@@ -6,16 +6,25 @@
 body{
     display: flex;
     flex-direction: column;
-    background-color: aquamarine;
+    background-color: rgb(64, 63, 78);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     justify-content: center;
     align-items: center;
+    
 }
 
 #info{
-    margin-top: 40px;
+    
 }
 
+.buttons{
+    display: flex;
+    flex-direction: row;
+    height: 250px;
+    align-items: center;
+    gap: 1em 1em;
+
+}
 .button {
     background-color: rgb(4, 29, 34);
     color: rgb(241, 238, 238);
@@ -25,7 +34,7 @@ body{
     box-shadow: 6px 6px 2px 2px rgb(156, 151, 151);
     width: 200px;
     height: 200px;
-    margin-top: 40px;
+
 
 }
 
@@ -48,11 +57,14 @@ body{
     background-color: rgb(167, 192, 172);
     color: black;
     transition: 0.7s;
+    height: 250px;
+    width: 250px;
 }
 
 .button:focus{
     transition: 0.7s;
     box-shadow: 6px 6px 2px 2px rgb(34, 134, 48);
+    
 }
 
 .button:active{

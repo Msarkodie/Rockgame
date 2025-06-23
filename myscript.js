@@ -1,3 +1,19 @@
+//Scores
+let humanScore = 0;
+let computerScore = 0;
+
+//Referencing the buttons
+const rocc = document.querySelector("#roc");
+const pap = document.querySelector("#pap");
+const sciss = document.querySelector("#sci");
+
+
+//button event handlers
+rocc.addEventListener("click",);
+pap.addEventListener("click",);
+sciss.addEventListener("click",);
+
+
 //function to generate computer choice
 function getComputerChoice(num)
 {
@@ -19,27 +35,13 @@ function getComputerChoice(num)
 //Generate computer selection and store
 //const computerSelection = getComputerChoice(3);
 
-//Scores
-let humanScore = 0;
-let computerScore = 0;
 
-//function to take human choice and generate reponse
-function getHumanChoice()
-{
-    let input = prompt("Please enter your choice. 1.paper 2.scissors 3.rock");
-    lowerWord = input.toLowerCase();
-    if (lowerWord === 'paper')
-        return "paper";
-    else if (lowerWord === 'scissors')
-        return "scissors";
-    else if(lowerWord === 'rock')
-        return "rock";
-    else 
-        return "Sorry, wrong entry"
-}
+
 //
-function playRound(humanChoice, computerChoice)
+function playGame(humanChoice)
 {
+    let computerChoice = getComputerChoice(3);
+
     if(computerChoice && humanChoice)
     {
         if (humanChoice === 'paper' && computerChoice === 'rock')
@@ -97,69 +99,6 @@ function playRound(humanChoice, computerChoice)
     
 }
 
-function playGame()
-{
-    console.log('Round 1')
-    let humanSelection = getHumanChoice();
-    let computerSelection = getComputerChoice(3);
-    console.log('Computer Selection is ' + computerSelection);
-    console.log('Human Selection is ' + humanSelection);
-    playRound(humanSelection,computerSelection);
-
-    console.log('Round 2')
-    humanSelection = getHumanChoice();
-    computerSelection = getComputerChoice(3);
-    console.log('Computer Selection is ' + computerSelection);
-    console.log('Human Selection is ' + humanSelection);
-    playRound(humanSelection,computerSelection);
-
-    console.log('Round 3')
-    humanSelection = getHumanChoice();
-    computerSelection = getComputerChoice(3);
-    console.log('Computer Selection is ' + computerSelection);
-    console.log('Human Selection is ' + humanSelection);
-    playRound(humanSelection,computerSelection);
-
-    console.log('Round 4')
-    humanSelection = getHumanChoice();
-    computerSelection = getComputerChoice(3);
-    console.log('Computer Selection is ' + computerSelection);
-    console.log('Human Selection is ' + humanSelection);
-    playRound(humanSelection,computerSelection);
-
-    console.log('Round 5')
-    humanSelection = getHumanChoice();
-    computerSelection = getComputerChoice(3);
-    console.log('Computer Selection is ' + computerSelection);
-    console.log('Human Selection is ' + humanSelection);
-    playRound(humanSelection,computerSelection);
-
-    
-
-    
-
-
-
-
-    console.log('At the end of the 5 Rounds Human Score is '+ humanScore + ' Computer Score is '+ computerScore)
-    if(humanScore > computerScore)
-        {
-            console.log('Wow, Congratulations, you won.')
-
-        }
-
-    else if(humanScore < computerScore)
-        {
-            console.log('Ohhh sorry but you lost the game')
-        }
-
-    else
-        {
-            console.log('Its a tie. Play again next time')
-        }
-
-
-}
 
 playGame();
 
