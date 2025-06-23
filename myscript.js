@@ -2,16 +2,19 @@
 let humanScore = 0;
 let computerScore = 0;
 
-//Referencing the buttons
+//Referencing the elements
 const rocc = document.querySelector("#roc");
 const pap = document.querySelector("#pap");
 const sciss = document.querySelector("#sci");
+const inform = document.querySelector("#info");
+const scoreh = document.querySelector("#hscore");
+const scorec = document.querySelector("#cscore");
 
 
 //button event handlers
-rocc.addEventListener("click",);
-pap.addEventListener("click",);
-sciss.addEventListener("click",);
+rocc.addEventListener("click",()=>playGame("rock"));
+pap.addEventListener("click",()=>playGame("paper"));
+sciss.addEventListener("click",()=>playGame("scissors"));
 
 
 //function to generate computer choice
@@ -38,6 +41,17 @@ function getComputerChoice(num)
 
 
 //
+function reset()
+{
+     humanScore = 0;
+     computerScore = 0;
+     scoreh.textContent=humanScore;
+     scorec.textContent=computerScore;
+
+     
+}
+
+
 function playGame(humanChoice)
 {
     let computerChoice = getComputerChoice(3);
@@ -46,61 +60,75 @@ function playGame(humanChoice)
     {
         if (humanChoice === 'paper' && computerChoice === 'rock')
             {
-               console.log('You win ' + humanChoice + ' beats ' + computerChoice);
+               inform.textContent='You win ' + humanChoice + ' beats ' + computerChoice;
                humanScore++;
+               scoreh.textContent= humanScore;
     
             }
 
         else if (humanChoice === 'rock' && computerChoice === 'paper')
             {
-                console.log('You lose ' + computerChoice + ' beats ' + humanChoice);
+                inform.textContent='You lose ' + computerChoice + ' beats ' + humanChoice;
                 computerScore++;
+                scorec.textContent=computerScore;
         
             }
 
         if (humanChoice === 'scissors' && computerChoice === 'paper')
                 {
-                console.log('You win ' +humanChoice + ' beats ' + computerChoice);
+                inform.textContent='You win ' +humanChoice + ' beats ' + computerChoice;
                 humanScore++;
+                scoreh.textContent=humanScore;
         
                 }
     
         else if (humanChoice === 'paper' && computerChoice === 'scissors')
                 {
-                    console.log('You lose ' + computerChoice + ' beats ' + humanChoice);
+                    inform.textContent='You lose ' + computerChoice + ' beats ' + humanChoice;
                     computerScore++;
+                    scorec.textContent=computerScore;
             
                 }    
 
     
         if (humanChoice === 'rock' && computerChoice === 'scissors')
                 {
-                    console.log('You win ' +humanChoice + ' beats ' + computerChoice);
+                    inform.textContent='You win ' +humanChoice + ' beats ' + computerChoice;
                     humanScore++;
+                    scoreh.textContent=humanScore;
             
                 }
         
         else if (humanChoice === 'scissors' && computerChoice === 'rock')
                 {
-                        console.log('You lose ' + computerChoice + ' beats ' + humanChoice);
+                        inform.textContent='You lose ' + computerChoice + ' beats ' + humanChoice;
                         computerScore++;
+                        scorec.textContent=computerScore;
                 
                 }
 
         if(humanChoice === computerChoice)
         {
-            console.log('Awwnn. There was a tie. No score then')
+            inform.textContent='Awwnn. There was a tie. No score then'
         }
+      }
     
+      if(humanScore == 5 || computerScore == 5)
+      {
+          if(humanScore == 5)
+          {
+            inform.textContent="CONGRATULATIONS,YOU WON. YOU WHOOPED "+humanScore+" AGAINST COMPUTER SCORE OF "+computerScore;       
+          }
 
-        console.log('End of this round. HumanScore = ' + humanScore + ' ComputerScore = ' + computerScore)
-        
-    }
-    
+          else
+          {
+            inform.textContent="AWW THAT'S AWFUL, YOU LOST. YOU SCORED "+humanScore+" AGAINST COMPUTER SCORE OF "+computerScore;
+          }
+          reset();
+      }
 }
 
 
-playGame();
 
 
 
